@@ -13,7 +13,7 @@ from pythonjsonlogger import jsonlogger
 
 
 app = FastAPI()
-FastAPIInstrumentor.instrument_app(app)
+# FastAPIInstrumentor.instrument_app(app)
 HTTPXClientInstrumentor().instrument()
 
 
@@ -22,7 +22,7 @@ def json_dumps(data, *args, **kwargs) -> str:
 
 
 def configure_logging():
-    LoggingInstrumentor(log_level="DEBUG").instrument(set_logging_format=True)
+    # LoggingInstrumentor(log_level="DEBUG").instrument(set_logging_format=True)
     logging.basicConfig()
     root_logger = logging.getLogger()
 

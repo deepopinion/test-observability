@@ -26,29 +26,29 @@ services:
 
 
 
-#  jaeger:
-#    container_name: jaeger
-#    hostname: jaeger
-#    image: jaegertracing/all-in-one
-#    environment:
-#      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
-#    ports:
-#      - "5775:5775/udp"
-#      - "6831:6831/udp"
-#      - "6832:6832/udp"
-#      - "5778:5778"
-#      - "16686:16686"
-#      - "14268:14268"
-#      - "9411:9411"
-#      - "4317:4317"
-#      - "4318:4318"
-
-  collector:
-    container_name: collector
-    hostname: collector
-    image: otel/opentelemetry-collector
-    volumes:
-      - ./collector-config.yaml:/etc/otelcol/config.yaml
+  jaeger:
+    container_name: jaeger
+    hostname: jaeger
+    image: jaegertracing/all-in-one
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
     ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "9411:9411"
       - "4317:4317"
       - "4318:4318"
+
+#  collector:
+#    container_name: collector
+#    hostname: collector
+#    image: otel/opentelemetry-collector
+#    volumes:
+#      - ./collector-config.yaml:/etc/otelcol/config.yaml
+#    ports:
+#      - "4317:4317"
+#      - "4318:4318"
